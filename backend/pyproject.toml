@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "src"
+version = "0.1.0"
+description = "This contains the dependencies required for the Flask backend to query MySQL"
+authors = ["Wesley"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+flask = "^3.1.0"
+flask-sqlalchemy = "^3.1.1"
+pytz = "^2024.2"
+mysql-connector-python = "^9.1.0"
+flask-cors = "^5.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

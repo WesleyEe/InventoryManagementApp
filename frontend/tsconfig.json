@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "target": "ESNext", // Use modern JavaScript features
+      "lib": ["DOM", "DOM.Iterable", "ESNext"], // Include browser and modern JS libraries
+      "allowJs": true, // Allow JavaScript files in the project
+      "skipLibCheck": true, // Skip type checking of declaration files
+      "esModuleInterop": true, // Enable ES module interop for compatibility
+      "allowSyntheticDefaultImports": true, // Allow default imports for modules without default exports
+      "strict": true, // Enable strict type checking
+      "forceConsistentCasingInFileNames": true, // Ensure consistent casing in imports
+      "module": "ESNext", // Use the ES module system
+      "moduleResolution": "Node", // Resolve modules like Node.js
+      "resolveJsonModule": true, // Allow importing JSON files
+      "isolatedModules": true, // Ensure each file can be treated as a separate module
+      "noEmit": true, // Don't emit output files (handled by Vite)
+      "jsx": "react-jsx", // Use the modern JSX transform
+      "baseUrl": "src", // Set the base directory for absolute imports
+      "paths": {
+        "@appTypes/*": ["types/*"], // Alias '@types' to 'src/types'
+        "@services/*": ["services/*"], // Alias '@services' to 'src/services'
+        "@components/*": ["components/*"] // Alias '@components' to 'src/components'
+      }
+    },
+    "include": ["src"], // Include all files in the src directory
+    "exclude": ["node_modules", "dist"] // Exclude unnecessary folders
+  }
+  
