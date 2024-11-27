@@ -100,19 +100,15 @@ def register_routes(app):
             elif order == "desc":
                 query = query.order_by(getattr(Item, field).desc())
 
-        # Pagination: Apply pagination based on page and size
-        if pagination.get("page") and pagination.get("size"):
-            page = pagination["page"]
-            size = pagination["size"]
-            query = query.paginate(page, size, False)
+        # Pagination
+        page = pagination.get("page", 1)
+        limit = pagination.get("limit", 10)
+        query = query.paginate(page=page, per_page=limit, error_out=False)
 
-        # Get items
-        items = query.all()
-
-        # Calculate total price
-        total_price = sum(item.price for item in items)
-
-        # Serialize items
+        # Get results
+        items = query.items
+        count = query.total
+        # Serialize items to include necessary fields
         items_data = [
             {
                 "id": item.id,
@@ -123,5 +119,7 @@ def register_routes(app):
             }
             for item in items
         ]
-
-        return jsonify({"items": items_data, "total_price": total_price})
+        # Response with filtered items, pagination info, and total count
+        return jsonify(
+            {"items": items_data, "count": count, "page": page, "limit": limit}
+        )
