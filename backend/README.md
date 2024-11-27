@@ -20,3 +20,10 @@ curl -X POST http://127.0.0.1:5000/items-filter-page-sort \
 ```
 
 Feel free to use different args for the `filters`, `pagination` and `sort` fields.
+
+
+# Guide to running tests
+
+## to run the pytests
+
+Run `poetry run pytest`
